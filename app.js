@@ -34,20 +34,9 @@ const taskSchema = {
 const User = mongoose.model("User",UserSchema);
 const Task = mongoose.model("Task",taskSchema);
 
+
 // User Id
 let current_user_id = "";
-
-// const u1 = new User({
-//     Name:"John",
-//     Age:12
-// });
-
-// const t1 = new Task({
-//     Name:"Prime",
-//     Amount:499,
-//     Type:"Type A"
-// })
-
 
 
 // Initial Route
@@ -64,6 +53,8 @@ app.get("/",(req,res)=>{
 app.get("/login",(req,res)=>{
     res.render("login");
 })
+
+// Login Logic
 app.post("/login",(req,res)=>{
     const loginInfo = req.body;
     let uname  = loginInfo.u_name;
@@ -73,6 +64,7 @@ app.post("/login",(req,res)=>{
     User.findOne({'Username':uname},(err,result)=>{
         if(err){
             console.log(err);
+            res.redirect("/login"); 
         }else{
             console.log("Og psw is "+result.Password);
             if(result.Password == key){
@@ -87,24 +79,14 @@ app.post("/login",(req,res)=>{
         }
     })
 
-    // console.log(User.find({'Username':"Nyam"}));
-    // if(User.find({"Username":loginInfo.u_name})===loginInfo.u_key){
-    //     console.log("LOgin success!!")
-    //     res.redirect("/home");
-    // }else{
-    //     res.redirect("/login");
-    //     console.log("Failed Login");
-    // }
-
-    // console.log(loginInfo);
-    // res.redirect("/login");
 });
 
+// Register Route
 app.get("/register",(req,res)=>{
     res.render("register");
 })
 
-// Creatting A New User
+// Creating A New User
 app.post("/register",(req,res)=>{
     const userDetails = req.body;
     const usr = new User({
@@ -131,13 +113,19 @@ app.get("/home",(req,res)=>{
 
 // Task Route
 app.get("/task",(req,res)=>{
-    Task.find({'User_id':current_user_id},(err,tasks)=>{
-        if(err){
-            console.log(err);
-        }else{
-            res.render("task",{data:tasks});
-        }
-    });
+
+    if(current_user_id!=""){
+        Task.find({'User_id':current_user_id},(err,tasks)=>{
+            if(err){
+                console.log(err);
+            }else{
+                res.render("task",{data:tasks});
+            }
+        });
+    }else{
+        res.render("index");
+    }
+
 });
 
 // Money Ruote
