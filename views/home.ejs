@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Enter Money</h1>
+    <form action="/home" method="post">
+        
+        <label for="">Task Name</label>
+        <input type="text" name="task_name">
+
+        <label for="">Amount</label>
+        <input type="number" name="task_amount">
+        
+        <label for="task_type">Take Type</label>
+        <select name="task_type" id="Task_type">
+            <option value="Type A">Type A</option>
+            <option value="Type B">Type B</option>
+            <option value="Type C">Type C</option>
+        </select>  
+        
+        <button type="submit">ADD</button>
+
+    </form>
+    <br>
+    <form action="/logout" method="post">
+        <button type="submit">LogOut</button>
+    </form>
+    
+</body>
+</html>
