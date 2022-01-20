@@ -1,16 +1,21 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>App</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
-<body>
+<body> -->
+    <%-include('../views/partials/header.ejs')%>
     <h1>Welcome to this basic app</h1>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-    <a href="/login"><button>Login</button></a>
-    <br>
-    <a href="/register"><button>Register</button></a>
-</body>
-</html>
+    <div class="login_box">
+        <a href="/login"><button class="button">Login</button></a>
+        <a href="/register"><button class="button">Register</button></a>
+    </div>
+    <%-include('../views/partials/footer.ejs')%>
+
+<!-- </body>
+</html> -->
