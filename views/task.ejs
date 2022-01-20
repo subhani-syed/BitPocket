@@ -1,10 +1,9 @@
 <%-include('../views/partials/header.ejs')%>
-    <h1>TAsk</h1>
-    <!-- <h2>This is ejs var <%= data %> </h2> -->
-    
-    <% data.forEach((task)=>{ %>
-        <h1>Name is <%=task.Name %> </h1>
-        <p>Amount is <%= task.Amount %></p>
-        <br>
-    <%}); %>
-<%-include('../views/partials/footer.ejs')%>
+<h1>TAsk</h1>
+<!-- <h2>This is ejs var <%= data %> </h2> -->
+
+<% data.forEach((task)=>{ %>
+<h1>Name is <%=task.Name %></h1>
+<p>Amount is <%= task.Amount %></p>
+<br />
+<%}); %> <%-include('../views/partials/footer.ejs')%>

@@ -1,31 +1,30 @@
-body{
-    background-color: #EEEEEE;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+body {
+  background-color: #eeeeee;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-h1{
-    text-align: center;
-    font-size: 3rem;
+h1 {
+  text-align: center;
+  font-size: 3rem;
 }
-p{
-    text-align: center;
-    font-size: large;
+p {
+  text-align: center;
+  font-size: large;
 }
 
-.button{
-    color: white;
-    margin: 10px;
-    padding: 10px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 2rem;
-    background-color:#393E46;
-    border-radius: 12px;
-
+.button {
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2rem;
+  background-color: #393e46;
+  border-radius: 12px;
 }
-.button:hover{
-    background-color:#00ADB5;
+.button:hover {
+  background-color: #00adb5;
 }
-.login_box{
-    padding: 50px;
-    /* padding: auto; */
-    text-align: center;
+.login_box {
+  padding: 50px;
+  /* padding: auto; */
+  text-align: center;
 }
