@@ -10,6 +10,9 @@ const app = express();
 // To parse the body
 app.use(bodyParser.urlencoded({ extended: false }))
 
+// To Use CSS
+app.use(express.static(__dirname + '/public'));
+
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine','ejs');
 
