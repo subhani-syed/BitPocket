@@ -124,13 +124,47 @@ app.get("/task", (req, res) => {
 });
 
 // Money Ruote
+const old_omney = 
 app.get("/money", (req, res) => {
   res.render("money");
 });
 
+// Updating Money
+app.post("/money",(req,res)=>{
+  const data = Number(req.body.money_add);
+  User.findOne({'_id':current_user_id},(err,dataF)=>{
+    if(err){
+      console.log(err);
+    }else{
+      let money=dataF.Money;
+      money+=data;
+      // Adding money to the database
+      User.findByIdAndUpdate({'_id':current_user_id},{'Money':money},(e,doc)=>{
+        if(e){
+          console.log(e);
+        }else{
+          console.log("Data Updated!!");
+          res.redirect("/money");
+        }
+      });
+
+    }
+  })
+});
+
 // Info Route
 app.get("/info", (req, res) => {
-  res.render("profile");
+  User.findOne({'_id':current_user_id},(err,user)=>{
+    if(err){
+      console.log(err);
+    }else{
+      res.render("profile",{
+        name:user.Name,
+        age:user.Age,
+        mleft:user.Money
+      })
+    }
+  });
 });
 
 // Add Task to DB
