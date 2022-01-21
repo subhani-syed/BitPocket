@@ -1,3 +1,9 @@
 <%-include('../views/partials/header.ejs')%>
 <h1>Add Money</h1>
+<p>You can deposit Money Here</p>
+<form action="/money" method="post">
+    <label for="">Enter Amount</label>
+    <input type="number" name="money_add" id="" placeholder="Amount">
+    <button type="submit">Add</button>
+</form>
 <%-include('../views/partials/footer.ejs')%>
