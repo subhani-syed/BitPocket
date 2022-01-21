@@ -11,6 +11,14 @@ p {
   font-size: large;
 }
 
+.log_in{
+  text-align: center;
+}
+.input_box{
+  border-radius: 10px;
+  font-size: large;
+  border-style: solid;
+}
 .button {
   color: white;
   margin: 10px;
