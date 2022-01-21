@@ -1,16 +1,18 @@
 <%-include('../views/partials/header.ejs')%>
 <h1>Graph</h1>
 
-<canvas id="myChart" width="100" height="100"></canvas>
+<div class="chart">
+  <canvas id="myChart" ></canvas>
+</div>
 
+<h1 class="test">This is the chart</h1>
 <script>
-    
   var ctx = document.getElementById("myChart").getContext("2d");
   const data = {
     labels: ["Type A", "Type B", "Type C"],
     datasets: [
       {
-        label: "My First Dataset",
+        label: "Money Distribution",
         data:[ Number("<%=t1%>"),Number("<%=t2%>"),Number("<%=t3%>")],
         backgroundColor: [
           "rgb(255, 99, 132)",
@@ -23,13 +25,31 @@
   };
 
   const config = {
-    type: "doughnut",
+    type: "line",
     data: data,
+    options: {
+    responsive:false,
+    animations: {
+      tension: {
+        duration: 1000,
+        easing:'easing',
+        from: 1,
+        to: 0,
+        loop: true
+      }
+    },
+    scales: {
+      y: { // defining min and max so hiding the dataset does not change scale range
+        min: 0,
+        max: 300
+      }
+    }
+  }
+
   };
 
   var myChart = new Chart(ctx,config);
 
 </script>
-
 
 <%-include('../views/partials/footer.ejs')%>
