@@ -155,12 +155,11 @@ app.post("/home", (req, res) => {
 });
 
 // Graph Route
-var type_A = 0;
-var type_B = 0;
-var type_C = 0;
 
 app.get("/graph", (req, res) => {
-
+  var type_A = 0;
+  var type_B = 0;
+  var type_C = 0;
   Task.find({ User_id: current_user_id }, (err, tasks) => {
     if (err) {
       console.log(err);
@@ -186,7 +185,6 @@ app.get("/graph", (req, res) => {
       });
     }
   });
-  
 });
 
 Task.find({ User_id: current_user_id, Type: "Type A" }, (err, taskA) => {
