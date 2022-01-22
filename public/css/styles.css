@@ -53,6 +53,28 @@ p {
   width:90vw;
 }
 
+.nav_bar{
+  border-radius: 10px;
+  display: flex;
+  justify-content:center;
+  background-color: #222831;
+  overflow: hidden;
+}
+.nav_bar a{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+.nav_bar a:hover{
+  border-radius: 10px;
+  background-color: #00adb5;
+  color: #eeeeee;
+}
+
 canvas {
   /* border: 5px solid blue; */
 }
