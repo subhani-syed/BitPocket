@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Chart = require("chart.js");
+const res = require("express/lib/response");
 
 const app = express();
 
@@ -191,7 +192,8 @@ app.post("/home", (req, res) => {
 // Graph Route
 
 app.get("/graph", (req, res) => {
-  var type_A = 0;
+  if(current_user_id!==""){
+    var type_A = 0;
   var type_B = 0;
   var type_C = 0;
   Task.find({ User_id: current_user_id }, (err, tasks) => {
@@ -219,6 +221,9 @@ app.get("/graph", (req, res) => {
       });
     }
   });
+  }else{
+    res.redirect("/");
+  }
 });
 
 Task.find({ User_id: current_user_id, Type: "Type A" }, (err, taskA) => {
