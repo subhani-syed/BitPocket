@@ -125,9 +125,13 @@ app.get("/task", (req, res) => {
 });
 
 // Money Ruote
-const old_omney = 
 app.get("/money", (req, res) => {
-  res.render("money");
+  if(current_user_id!==""){
+    res.render("money");
+  }else{
+    res.redirect("/");
+  }
+  
 });
 
 // Updating Money
@@ -250,4 +254,4 @@ app.listen(3000, () => {
   console.log("App is working");
 });
 
-//TODO: Add User Login valualtion for,info,money routes
+//TODO: Add User Login valualtion money routes
