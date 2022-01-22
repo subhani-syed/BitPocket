@@ -155,17 +155,21 @@ app.post("/money",(req,res)=>{
 
 // Info Route
 app.get("/info", (req, res) => {
-  User.findOne({'_id':current_user_id},(err,user)=>{
-    if(err){
-      console.log(err);
-    }else{
-      res.render("profile",{
-        name:user.Name,
-        age:user.Age,
-        mleft:user.Money
-      })
-    }
-  });
+  if(current_user_id!==""){
+    User.findOne({'_id':current_user_id},(err,user)=>{
+      if(err){
+        console.log(err);
+      }else{
+        res.render("profile",{
+          name:user.Name,
+          age:user.Age,
+          mleft:user.Money
+        })
+      }
+    });
+  }else{
+    res.redirect("/");
+  }
 });
 
 // Add Task to DB
@@ -246,4 +250,4 @@ app.listen(3000, () => {
   console.log("App is working");
 });
 
-//TODO: Add User Login valualtion for graph,info,money routes
+//TODO: Add User Login valualtion for,info,money routes
