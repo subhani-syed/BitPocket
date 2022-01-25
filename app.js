@@ -3,7 +3,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Chart = require("chart.js");
-const res = require("express/lib/response");
 
 const app = express();
 
@@ -157,28 +156,10 @@ app.post("/money",(req,res)=>{
   })
 });
 
-// Info Route
-app.get("/info", (req, res) => {
-  if(current_user_id!==""){
-    User.findOne({'_id':current_user_id},(err,user)=>{
-      if(err){
-        console.log(err);
-      }else{
-        res.render("profile",{
-          name:user.Name,
-          age:user.Age,
-          mleft:user.Money
-        })
-      }
-    });
-  }else{
-    res.redirect("/");
-  }
-});
 
 // Add Task to DB
 app.post("/home", (req, res) => {
-  const taskRetrieved = req.body;
+  const taskRetrieved = req.body; 
 
   const task = Task({
     Name: taskRetrieved.task_name,
@@ -234,11 +215,31 @@ app.get("/graph", (req, res) => {
   }
 });
 
+// Info Route
+app.get("/info", (req, res) => {
+  if(current_user_id!==""){
+    User.findOne({'_id':current_user_id},(err,user)=>{
+      if(err){
+        console.log(err);
+      }else{
+        res.render("profile",{
+          name:user.Name,
+          age:user.Age,
+          mleft:user.Money
+        })
+      }
+    });
+  }else{
+    res.redirect("/");
+  }
+});
+
+// WHats this ??
 Task.find({ User_id: current_user_id, Type: "Type A" }, (err, taskA) => {
   if (err) {
     console.log(err);
   } else {
-    console.log(taskA);
+    console.log("here"+taskA);
   }
 });
 
