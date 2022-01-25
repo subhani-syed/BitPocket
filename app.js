@@ -159,27 +159,47 @@ app.post("/money",(req,res)=>{
 
 // Add Task to DB
 app.post("/home", (req, res) => {
-  const taskRetrieved = req.body; 
-
-  const task = Task({
-    Name: taskRetrieved.task_name,
-    Amount: taskRetrieved.task_amount,
-    Type: taskRetrieved.task_type,
-    User_id: current_user_id,
-  });
-  task.save((err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Data added Successfully!");
-    }
-  });
   console.log(req.body);
-  res.redirect("/home");
+  User.findOne({'_id':current_user_id},(err,found)=>{
+    if(err){
+      console.log(err);
+    }else{
+      console.log("This is the user money"+found.Money);
+
+      let new_money = found.Money- req.body.task_amount;
+      if(new_money>=0){
+        console.log("This is the updated money "+new_money);
+        User.findOneAndUpdate({'_id':current_user_id},{'Money':new_money},(er,out)=>{
+          if(er){
+            console.log(err);
+          }else{
+            const taskRetrieved = req.body;
+            const task = Task({
+              Name: taskRetrieved.task_name,
+              Amount: taskRetrieved.task_amount,
+              Type: taskRetrieved.task_type,
+              User_id: current_user_id,
+            });
+            task.save((exp)=>{
+              if(exp){
+                console.log(exp)
+              }else{
+                console.log("Task Saved To DB");
+                res.redirect("/home");
+              }
+            })
+          }
+        })
+        
+      }else{
+        console.log("Insufficient Funds");
+        res.redirect("/home");
+      }
+    }
+  })
 });
 
 // Graph Route
-
 app.get("/graph", (req, res) => {
   if(current_user_id!==""){
     var type_A = 0;
@@ -234,15 +254,6 @@ app.get("/info", (req, res) => {
   }
 });
 
-// WHats this ??
-Task.find({ User_id: current_user_id, Type: "Type A" }, (err, taskA) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("here"+taskA);
-  }
-});
-
 // LogOut
 app.post("/logout", (req, res) => {
   current_user_id = "";
@@ -255,4 +266,3 @@ app.listen(3000, () => {
   console.log("App is working");
 });
 
-//TODO: Add User Login valualtion money routes
