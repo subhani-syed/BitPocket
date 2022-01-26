@@ -78,3 +78,12 @@ p {
 canvas {
   /* border: 5px solid blue; */
 }
+.register_form{
+  text-align: center;
+}
+.register_form input{
+  font-size: x-large;
+  margin: 10px;
+  border-style: none;
+  border-radius: 5px;
+}
