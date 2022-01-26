@@ -87,3 +87,7 @@ canvas {
   border-style: none;
   border-radius: 5px;
 }
+.wrapper{
+  display: flex;
+  align-items: center;
+}

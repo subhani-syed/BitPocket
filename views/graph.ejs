@@ -1,12 +1,15 @@
 <%-include('../views/partials/header.ejs')%>
 <h1>Graph</h1>
 
-<div>
-  <img src="/images/metrics.svg" alt="metrics">
+<div class="wrapper">
+  <div>
+    <img src="/images/metrics.svg" alt="metrics">
+  </div>
+  <div class="chart">
+    <canvas id="myChart" ></canvas>
+  </div>
 </div>
-<div class="chart">
-  <canvas id="myChart" ></canvas>
-</div>
+
 
 <script>
   var ctx = document.getElementById("myChart").getContext("2d");

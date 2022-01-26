@@ -1,30 +1,33 @@
 <%-include('../views/partials/header.ejs')%>
 <h1>Enter Task Details</h1>
-<div>
-  <img src="/images/complete_task.svg" alt="complete_task">
-</div>
-<div class="log_in">
-  <form class="register_form" action="/home" method="post">
-    <label for="">Task Name</label>
-    <input class="input_box" type="text" name="task_name" required/>
-
-    <label for="">Amount</label>
-    <input class="input_box" type="number"min="0" name="task_amount" required />
-
-    <label for="task_type">Take Type</label>
-    <select name="task_type" id="Task_type">
-      <option value="Type A">Type A</option>
-      <option value="Type B">Type B</option>
-      <option value="Type C">Type C</option>
-    </select>
-    <br />
-    <button class="button" type="submit">ADD</button>
-  </form>
-  <br />
+<div class="wrapper">
+  <div>
+    <img src="/images/complete_task.svg" alt="complete_task">
+  </div>
+  <div class="log_in">
+    <form class="register_form" action="/home" method="post">
+      <label for="">Task Name</label>
+      <input class="input_box" type="text" name="task_name" required/>
   
-  <form action="/logout" method="post">
-    <button class="button" type="submit">LogOut</button>
-  </form>
+      <label for="">Amount</label>
+      <input class="input_box" type="number"min="0" name="task_amount" required />
+  
+      <label for="task_type">Take Type</label>
+      <select name="task_type" id="Task_type">
+        <option value="Type A">Type A</option>
+        <option value="Type B">Type B</option>
+        <option value="Type C">Type C</option>
+      </select>
+      <br />
+      <button class="button" type="submit">ADD</button>
+    </form>
+    <br />
+    
+    <form action="/logout" method="post">
+      <button class="button" type="submit">LogOut</button>
+    </form>
+  </div>
 </div>
+
 
 <%-include('../views/partials/footer.ejs')%>

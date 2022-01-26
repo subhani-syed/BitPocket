@@ -17,12 +17,15 @@
     </nav>
 <h1>Add Money</h1>
 <p>You can deposit Money Here</p>
-<div>
-    <img src="/images/vault.svg" alt="vault">
+<div class="wrapper">
+    <div>
+        <img src="/images/vault.svg" alt="vault">
+    </div>
+    <form class="register_form" action="/money" method="post">
+        <label style="font-size: x-large;">Enter Amount</label>
+        <input type="number" min="0" name="money_add" id="" placeholder="Amount">
+        <button class="button"type="submit">Add</button>
+    </form>
 </div>
-<form class="register_form" action="/money" method="post">
-    <label style="font-size: x-large;">Enter Amount</label>
-    <input type="number" min="0" name="money_add" id="" placeholder="Amount">
-    <button class="button"type="submit">Add</button>
-</form>    
+    
 </body>
