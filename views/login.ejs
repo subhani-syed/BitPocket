@@ -1,11 +1,22 @@
-<%-include('../views/partials/header.ejs')%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
 <h1>Login</h1>
-<div class="log_in">
-  <form action="/login" method="post">
-    <input class="input_box" type="text" name="u_name" placeholder="Username" required/>
-    <input class="input_box" type="text" name="u_key" placeholder="Key" required/><br>
+<div>
+  <img src="/images/login.svg" alt="login">
+</div>
+<div>
+  <form class="register_form" action="/login" method="post">
+    <input class="input_box" type="text" name="u_name" placeholder="Username" required/><br>
+    <input class="input_box" type="password" name="u_key" placeholder="Key" required/><br>
     <button class="button"type="submit">Login</button>
   </form>
-</div>
-
-<%-include('../views/partials/footer.ejs')%>
+</div>  
+</body>
