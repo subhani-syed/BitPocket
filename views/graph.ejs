@@ -1,11 +1,13 @@
 <%-include('../views/partials/header.ejs')%>
 <h1>Graph</h1>
 
+<div>
+  <img src="/images/metrics.svg" alt="metrics">
+</div>
 <div class="chart">
   <canvas id="myChart" ></canvas>
 </div>
 
-<h1 class="test">This is the chart</h1>
 <script>
   var ctx = document.getElementById("myChart").getContext("2d");
   const data = {
@@ -25,7 +27,7 @@
   };
 
   const config = {
-    type: "line",
+    type: "pie",
     data: data,
     options: {
     responsive:false,

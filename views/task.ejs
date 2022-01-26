@@ -1,7 +1,9 @@
 <%-include('../views/partials/header.ejs')%>
 <h1>TAsk</h1>
 <!-- <h2>This is ejs var <%= data %> </h2> -->
-
+<div>
+    <img src="/images/completed_tasks.svg" alt="complete_task">
+</div>
 <% data.forEach((task)=>{ %>
 <h1>Name is <%=task.Name %></h1>
 <p>Amount is <%= task.Amount %></p>

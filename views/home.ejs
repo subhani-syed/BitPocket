@@ -1,12 +1,15 @@
 <%-include('../views/partials/header.ejs')%>
-<h1>Enter Money</h1>
+<h1>Enter Task Details</h1>
+<div>
+  <img src="/images/complete_task.svg" alt="complete_task">
+</div>
 <div class="log_in">
-  <form action="/home" method="post">
+  <form class="register_form" action="/home" method="post">
     <label for="">Task Name</label>
     <input class="input_box" type="text" name="task_name" required/>
 
     <label for="">Amount</label>
-    <input class="input_box" type="number" name="task_amount" required />
+    <input class="input_box" type="number"min="0" name="task_amount" required />
 
     <label for="task_type">Take Type</label>
     <select name="task_type" id="Task_type">
