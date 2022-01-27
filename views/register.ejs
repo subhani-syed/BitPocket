@@ -14,12 +14,13 @@
         <img src="/images/new_entries.svg" alt="new_entries">
       </div>
       <div class="register_form">
+        <h1>New User</h1>
         <form action="/register" method="post">
-          <input type="text" name="pname" placeholder="Name" required/><br>
-          <input type="number" min="0" name="age" placeholder="Age"required /><br>
-          <input type="text" name="username" placeholder="Username" required/><br>
+          <input type="text" name="pname" placeholder="Name" required autocomplete="off"/><br>
+          <input type="number" min="0" name="age" placeholder="Age"required autocomplete="off"/><br>
+          <input type="text" name="username" placeholder="Username" required autocomplete="off"/><br>
           <input type="password" name="password" placeholder="Password" required/><br>
-          <input type="number" min="0" name="money" placeholder="Money" required/><br>
+          <input type="number" min="0" name="money" placeholder="Money" required autocomplete="off"/><br>
           <button type="submit" class="button">Register</button>
         </form>
       </div>
