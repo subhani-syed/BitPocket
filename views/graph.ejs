@@ -10,6 +10,24 @@
   </div>
 </div>
 
+<div>
+  <form action="/line" method="post">
+    <button class="button" type="submit">Line</button>
+  </form>
+  <form action="/bar" method="post">
+    <button class="button" type="submit">Bar</button>
+  </form>
+  <form action="/radar" method="post">
+    <button class="button" type="submit">Radar</button>
+  </form>
+  <form action="/pie" method="post">
+    <button class="button" type="submit">Pie</button>
+  </form>
+  <form action="/dough" method="post">
+    <button class="button" type="submit">Dough-nut</button>
+  </form>
+</div>
+
 
 <script>
   var ctx = document.getElementById("myChart").getContext("2d");
@@ -30,7 +48,8 @@
   };
 
   const config = {
-    type: "pie",
+    // type: "pie",
+    type:"<%= graph_type%>",
     data: data,
     options: {
     responsive:false,

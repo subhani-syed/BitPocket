@@ -69,7 +69,8 @@ app.post("/login", (req, res) => {
       res.redirect("/login");
     } else {
       // console.log("Og psw is " + result.Password);
-      if (result.Password == CryptoJS.SHA256(key).toString(CryptoJS.enc.Hex)) {
+      // CryptoJS.SHA256(key).toString(CryptoJS.enc.Hex)
+      if (result.Password == key) {
         current_user_id = result._id;
         res.redirect("/home");
         console.log("Login Success");
@@ -94,8 +95,8 @@ app.post("/register", (req, res) => {
     Name: userDetails.pname,
     Age: userDetails.age,
     Money: userDetails.money,
-    // Password: userDetails.password,
-    Password:CryptoJS.SHA256(userDetails.password).toString(CryptoJS.enc.Hex),
+    Password: userDetails.password,
+    // Password:CryptoJS.SHA256(userDetails.password).toString(CryptoJS.enc.Hex),
     Username: userDetails.username,
   });
   usr.save();
@@ -204,6 +205,29 @@ app.post("/home", (req, res) => {
 });
 
 // Graph Route
+let graph = "bar";
+
+app.post("/line",(req,res)=>{
+  graph = "line";
+  res.redirect("/graph");
+})
+app.post("/bar",(req,res)=>{
+  graph = "bar";
+  res.redirect("/graph");
+})
+app.post("/pie",(req,res)=>{
+  graph = "pie";
+  res.redirect("/graph");
+})
+app.post("/dough",(req,res)=>{
+  graph = "doughnut";
+  res.redirect("/graph");
+})
+app.post("/radar",(req,res)=>{
+  graph = "radar";
+  res.redirect("/graph");
+})
+
 app.get("/graph", (req, res) => {
   if(current_user_id!==""){
     var type_A = 0;
@@ -222,15 +246,16 @@ app.get("/graph", (req, res) => {
           type_C = type_C + task.Amount;
         }
       });
-      console.log("The Final A is -> " + type_A);
-      console.log("The Final B is -> " + type_B);
-      console.log("The Final C is -> " + type_C);
+      // console.log("The Final A is -> " + type_A);
+      // console.log("The Final B is -> " + type_B);
+      // console.log("The Final C is -> " + type_C);
       res.render("graph", {
-        test: "Helllo",
+        // test: "Helllo",
         t1: type_A,
         t2: type_B,
         t3: type_C,
-        t: 100,
+        // t: 100,
+        graph_type:graph
       });
     }
   });
@@ -238,7 +263,6 @@ app.get("/graph", (req, res) => {
     res.redirect("/");
   }
 });
-
 // Info Route
 app.get("/info", (req, res) => {
   if(current_user_id!==""){
