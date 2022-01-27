@@ -29,7 +29,8 @@ p {
   border-radius: 12px;
 }
 .button:hover {
-  background-color: #00adb5;
+  /* background-color: #00adb5; */
+  background-color: #00BFA6;
 }
 .login_box {
   padding: 50px;
@@ -71,7 +72,7 @@ p {
 }
 .nav_bar a:hover{
   border-radius: 10px;
-  background-color: #00adb5;
+  background-color: #00BFA6;
   color: #eeeeee;
 }
 
@@ -90,4 +91,5 @@ canvas {
 .wrapper{
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
