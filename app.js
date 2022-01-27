@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const Chart = require("chart.js");
+const CryptoJS = require('crypto-js');
 
 const app = express();
 
@@ -50,6 +51,8 @@ app.get("/", (req, res) => {
 
 // Login Route
 app.get("/login", (req, res) => {
+  // var seed_hash = CryptoJS.SHA256("a").toString(CryptoJS.enc.Hex);
+  // console.log("This is the seed "+seed_hash);
   res.render("login");
 });
 
@@ -58,15 +61,15 @@ app.post("/login", (req, res) => {
   const loginInfo = req.body;
   let uname = loginInfo.u_name;
   let key = loginInfo.u_key;
-  console.log("Given username is " + uname);
-  console.log("Given key is " + key);
+  // console.log("Given username is " + uname);
+  // console.log("Given key is " + key);
   User.findOne({ Username: uname }, (err, result) => {
     if (err) {
       console.log(err);
       res.redirect("/login");
     } else {
-      console.log("Og psw is " + result.Password);
-      if (result.Password == key) {
+      // console.log("Og psw is " + result.Password);
+      if (result.Password == CryptoJS.SHA256(key).toString(CryptoJS.enc.Hex)) {
         current_user_id = result._id;
         res.redirect("/home");
         console.log("Login Success");
@@ -74,7 +77,7 @@ app.post("/login", (req, res) => {
         console.log("Login Fail");
         res.redirect("/login");
       }
-      console.log(result);
+      // console.log("This "+result);
     }
   });
 });
@@ -91,7 +94,8 @@ app.post("/register", (req, res) => {
     Name: userDetails.pname,
     Age: userDetails.age,
     Money: userDetails.money,
-    Password: userDetails.password,
+    // Password: userDetails.password,
+    Password:CryptoJS.SHA256(userDetails.password).toString(CryptoJS.enc.Hex),
     Username: userDetails.username,
   });
   usr.save();
@@ -102,7 +106,7 @@ app.post("/register", (req, res) => {
 // Home Route
 app.get("/home", (req, res) => {
   if (current_user_id == "") {
-    res.render("index");
+    res.redirect("/");
   } else {
     res.render("home");
   }
