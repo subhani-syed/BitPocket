@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+// Need To remove Chartjs package
 const Chart = require("chart.js");
 const CryptoJS = require('crypto-js');
 
@@ -51,8 +52,6 @@ app.get("/", (req, res) => {
 
 // Login Route
 app.get("/login", (req, res) => {
-  // var seed_hash = CryptoJS.SHA256("a").toString(CryptoJS.enc.Hex);
-  // console.log("This is the seed "+seed_hash);
   res.render("login");
 });
 
@@ -70,7 +69,8 @@ app.post("/login", (req, res) => {
     } else {
       // console.log("Og psw is " + result.Password);
       // CryptoJS.SHA256(key).toString(CryptoJS.enc.Hex)
-      if (result.Password == key) {
+      if (result.Password == CryptoJS.SHA256(key).toString(CryptoJS.enc.Hex)) {
+      // if (result.Password == key) {
         current_user_id = result._id;
         res.redirect("/home");
         console.log("Login Success");
@@ -95,8 +95,8 @@ app.post("/register", (req, res) => {
     Name: userDetails.pname,
     Age: userDetails.age,
     Money: userDetails.money,
-    Password: userDetails.password,
-    // Password:CryptoJS.SHA256(userDetails.password).toString(CryptoJS.enc.Hex),
+    // Password: userDetails.password,
+    Password:CryptoJS.SHA256(userDetails.password).toString(CryptoJS.enc.Hex),
     Username: userDetails.username,
   });
   usr.save();
