@@ -1,13 +1,21 @@
 <%-include('../views/partials/header.ejs')%>
 <h1>Task</h1>
-<!-- <h2>This is ejs var <%= data %> </h2> -->
 <div>
     <img src="/images/completed_tasks.svg" alt="complete_task">
 </div>
 <% data.forEach((task)=>{ %>
-<h1>Name is <%=task.Name %></h1>
-<p>Amount is <%= task.Amount %></p>
-<p>Type is <%= task.Type %></p>
-<br />
+    <div>
+        <h1>Task Name is <%=task.Name %></h1>
+        <p>Task Amount is <%= task.Amount %></p>
+        <%    if(task.Type =='Type A'){%>
+                <p style="background-color: chocolate;">Task Type is <%= task.Type %></p>
+        <%    }else if(task.Type=='Type B'){%>
+                <p style="background-color: crimson;">Task Type is <%= task.Type %></p>
+        <%    }else{%>
+                <p style="background-color: chartreuse;">Task Type is <%= task.Type %></p>
+        <%    }%>
+        <br />
+    </div>
+
 <%}); %> 
 <%-include('../views/partials/footer.ejs')%>
