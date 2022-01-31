@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 // Need To remove Chartjs package
 const Chart = require("chart.js");
 const CryptoJS = require('crypto-js');
+// Using dotenv
+require('dotenv').config({path: __dirname + '/.env'})
 
 const app = express();
 
@@ -18,7 +20,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // Connecting mongoose to DB
-mongoose.connect("mongodb://localhost:27017/bpDB");
+mongoose.connect(process.env['MONGODB']);
 
 const UserSchema = {
   Name: String,
@@ -60,25 +62,19 @@ app.post("/login", (req, res) => {
   const loginInfo = req.body;
   let uname = loginInfo.u_name;
   let key = loginInfo.u_key;
-  // console.log("Given username is " + uname);
-  // console.log("Given key is " + key);
   User.findOne({ Username: uname }, (err, result) => {
-    if (err) {
-      console.log(err);
-      res.redirect("/login");
-    } else {
-      // console.log("Og psw is " + result.Password);
-      // CryptoJS.SHA256(key).toString(CryptoJS.enc.Hex)
+    try{
       if (result.Password == CryptoJS.SHA256(key).toString(CryptoJS.enc.Hex)) {
-      // if (result.Password == key) {
-        current_user_id = result._id;
-        res.redirect("/home");
-        console.log("Login Success");
-      } else {
-        console.log("Login Fail");
-        res.redirect("/login");
-      }
-      // console.log("This "+result);
+          current_user_id = result._id;
+          res.redirect("/home");
+          console.log("Login Success");
+        }else {
+          console.log("Login Fail due to wrong password");
+          res.redirect("/login");
+        }
+    }catch(err){
+      res.render("notfound");
+      console.log("User Not found");
     }
   });
 });
