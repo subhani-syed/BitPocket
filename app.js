@@ -8,6 +8,7 @@ const CryptoJS = require("crypto-js");
 const cookieParser = require("cookie-parser");
 // Using dotenv
 require("dotenv").config({ path: __dirname + "/.env" });
+const port = process.env.PORT||3000;
 
 const app = express();
 
@@ -289,6 +290,6 @@ app.post("/logout", (req, res) => {
 });
 
 // App Running
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("App is working");
 });
