@@ -118,4 +118,7 @@ canvas {
   .input_box{
     width: 90vw;
   }
+  .mobile_input{
+    width: 90vw;
+  }
 }
