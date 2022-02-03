@@ -121,4 +121,28 @@ canvas {
   .mobile_input{
     width: 90vw;
   }
+  .nav_bar{
+    /* What does this do ? */
+    left: 0px;
+    
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0%;
+    height: 10vh;
+  }
+  .nav_bar a{
+    border-radius: 0px;
+  }
+  .home{
+    margin-bottom: 10vh;
+  }
+  .profile{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+    /* justify-content: center; */
+    align-items: center;
+  }
 }

@@ -1,15 +1,20 @@
 <%-include('../views/partials/header.ejs')%>
-<div class="wrapper">
-    <div>
-        <h1>Name is <%= name %></h1>
-<p>Age is <%= age %></p>
-<h1>Amount Left is <%= mleft %></h1>
+<div class="profile wrapper">
+  
+    <div class="profile_img">
+        <img style=" width: 75vw; height: 45vh;" src="/images/male_avatar.svg" alt="male_avatar" />
     </div>
 
-<div>
-    <img src="/images/male_avatar.svg" alt="male_avatar">
-</div>    
-</div>
+    <div>
+        <h1>Name is <%= name %></h1>
+        <p>Age is <%= age %></p>
+        <h1>Amount Left is <%= mleft %></h1>
+    </div>
+    <form  action="/logout" method="post">
+        <button class="button" type="submit">LogOut</button>
+    </form>
 
+  
+</div>
 
 <%-include('../views/partials/footer.ejs')%>
