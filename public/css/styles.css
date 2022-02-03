@@ -106,5 +106,16 @@ canvas {
     height: auto;
     padding-left: 10vw;
     margin-top: 10vh;
-  }  
+  } 
+  .big_screen{
+    visibility: hidden;
+    display: none;
+  }
+  .mobile_login{
+    width: 100vw;
+    margin-top: 20vh;
+  }
+  .input_box{
+    width: 90vw;
+  }
 }
