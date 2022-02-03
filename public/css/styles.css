@@ -93,3 +93,18 @@ canvas {
   align-items: center;
   justify-content: space-evenly;
 }
+/* Home Route */
+.img_home{
+  width: 80vw;
+  height: 50vh;
+  padding-left: 10vw;
+  margin-top: 10vh;
+}
+@media screen and (max-width:480px) {
+  .img_home{
+    width: 80vw;
+    height: auto;
+    padding-left: 10vw;
+    margin-top: 10vh;
+  }  
+}
