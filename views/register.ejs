@@ -8,23 +8,23 @@
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
   </head>
   <body>
-    <h1>Register</h1>
+    <h1>BitPocket</h1>
     <div class="wrapper">
-      <div>
+      <div class="big_screen">
         <img src="/images/new_entries.svg" alt="new_entries">
       </div>
       <div class="register_form">
-        <h1>New User</h1>
+        <h1>User Details</h1>
         <form action="/register" method="post">
-          <input type="text" name="pname" placeholder="Name" required autocomplete="off"/><br>
-          <input type="number" min="0" name="age" placeholder="Age"required autocomplete="off"/><br>
-          <input type="text" name="username" placeholder="Username" required autocomplete="off"/><br>
-          <input type="password" name="password" placeholder="Password" required/><br>
-          <input type="number" min="0" name="money" placeholder="Money" required autocomplete="off"/><br>
-          <button type="submit" class="button">Register</button>
+          <input class="mobile_input" type="text" name="pname" placeholder="Name" required autocomplete="off"/><br>
+          <input class="mobile_input" type="number" min="0" name="age" placeholder="Age"required autocomplete="off"/><br>
+          <input class="mobile_input" type="text" name="username" placeholder="Username" required autocomplete="off"/><br>
+          <input class="mobile_input" type="password" name="password" placeholder="Password" required/><br>
+          <input class="mobile_input" type="number" min="0" name="money" placeholder="Money" required autocomplete="off"/><br>
+          <button type="submit" class="button">Register</button><br>
         </form>
+        <p>Already a User <a href="/login">Login</a></p>
       </div>
     </div>
-    
   </body>
 </html>

@@ -93,3 +93,60 @@ canvas {
   align-items: center;
   justify-content: space-evenly;
 }
+/* Home Route */
+.img_home{
+  width: 80vw;
+  height: 50vh;
+  padding-left: 10vw;
+  margin-top: 10vh;
+}
+@media screen and (max-width:480px) {
+  .img_home{
+    width: 80vw;
+    height: auto;
+    padding-left: 10vw;
+    margin-top: 10vh;
+  } 
+  .big_screen{
+    visibility: hidden;
+    display: none;
+  }
+  .mobile_login{
+    width: 100vw;
+    margin-top: 20vh;
+  }
+  .input_box{
+    width: 90vw;
+  }
+  .mobile_input{
+    width: 90vw;
+  }
+  .nav_bar{
+    /* What does this do ? */
+    left: 0px;
+    
+    overflow: hidden;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0%;
+    height: 10vh;
+  }
+  .nav_bar a{
+    border-radius: 0px;
+  }
+  .home{
+    margin-bottom: 10vh;
+  }
+  .profile{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10vh;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  .graphs{
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
