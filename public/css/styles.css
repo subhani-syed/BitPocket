@@ -11,10 +11,10 @@ p {
   font-size: large;
 }
 
-.log_in{
+.log_in {
   text-align: center;
 }
-.input_box{
+.input_box {
   border-radius: 10px;
   font-size: large;
   border-style: solid;
@@ -30,38 +30,38 @@ p {
 }
 .button:hover {
   /* background-color: #00adb5; */
-  background-color: #00BFA6;
+  background-color: #00bfa6;
 }
 .login_box {
   padding: 50px;
   text-align: center;
 }
-.test{
+.test {
   border-style: solid;
   border-color: red;
   border-width: 5px;
 }
 
-.chart{
+.chart {
   text-align: center;
 }
 
-
-#myChart{
+#myChart {
   max-width: 500px;
   max-height: 500px;
   height: 70vh;
-  width:90vw;
+  width: 90vw;
 }
 
-.nav_bar{
+.nav_bar {
   border-radius: 10px;
   display: flex;
-  justify-content:center;
+  justify-content: space-between;
+  align-items: center;
   background-color: #222831;
   overflow: hidden;
 }
-.nav_bar a{
+.nav_bar a {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   float: left;
   color: #f2f2f2;
@@ -70,61 +70,58 @@ p {
   text-decoration: none;
   font-size: 17px;
 }
-.nav_bar a:hover{
+.nav_bar a:hover {
   border-radius: 10px;
-  background-color: #00BFA6;
+  background-color: #00bfa6;
   color: #eeeeee;
 }
 
-canvas {
-  /* border: 5px solid blue; */
-}
-.register_form{
+.register_form {
   text-align: center;
 }
-.register_form input{
+.register_form input {
   font-size: x-large;
   margin: 10px;
   border-style: none;
   border-radius: 5px;
 }
-.wrapper{
+.wrapper {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 /* Home Route */
-.img_home{
+.img_home {
   width: 80vw;
   height: 50vh;
   padding-left: 10vw;
   margin-top: 10vh;
 }
-@media screen and (max-width:480px) {
-  .img_home{
+@media screen and (max-width: 480px) {
+  .img_home {
     width: 80vw;
     height: auto;
     padding-left: 10vw;
     margin-top: 10vh;
-  } 
-  .big_screen{
+  }
+  .big_screen {
     visibility: hidden;
     display: none;
   }
-  .mobile_login{
+  .mobile_login {
     width: 100vw;
     margin-top: 20vh;
   }
-  .input_box{
+  .input_box {
     width: 90vw;
   }
-  .mobile_input{
+  .mobile_input {
     width: 90vw;
   }
-  .nav_bar{
+  .nav_bar {
     /* What does this do ? */
     left: 0px;
-    
+
     overflow: hidden;
     position: fixed;
     bottom: 0;
@@ -132,20 +129,20 @@ canvas {
     border-radius: 0%;
     height: 10vh;
   }
-  .nav_bar a{
+  .nav_bar a {
     border-radius: 0px;
   }
-  .home{
+  .home {
     margin-bottom: 10vh;
   }
-  .profile{
+  .profile {
     display: flex;
     flex-direction: column;
     margin-bottom: 10vh;
     /* justify-content: center; */
     align-items: center;
   }
-  .graphs{
+  .graphs {
     display: flex;
     flex-wrap: wrap;
   }
