@@ -1,12 +1,12 @@
-# BitPocket
+# BitPocket :money_with_wings:
 
-A Basic Money Management Tool
+A Basic Money Management Tool :gear:
 
 # Tech Stack
 * HTML
 * CSS
 * JavaScript
-* Chartjs
+* Chartjs :chart:
 * Nodejs
 * Express
 * MongoDB
@@ -18,4 +18,4 @@ A Basic Money Management Tool
 * Frontend plays a major as much as backend plays
 * Writing the problem on a piece of paper helps you to find the solution much faster
 
-Work in Progress....
+Work in Progress.... :hammer_and_wrench:
