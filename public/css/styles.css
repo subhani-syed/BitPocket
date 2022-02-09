@@ -84,6 +84,7 @@ p {
   margin: 10px;
   border-style: none;
   border-radius: 5px;
+  width: 90vw;
 }
 .wrapper {
   display: flex;
