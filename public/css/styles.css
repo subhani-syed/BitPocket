@@ -58,7 +58,8 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #222831;
+  /* background-color: #222831; */
+  background-color: #00c3ff;
   overflow: hidden;
 }
 .nav_bar a {
@@ -72,7 +73,8 @@ p {
 }
 .nav_bar a:hover {
   border-radius: 10px;
-  background-color: #00bfa6;
+  /* background-color: #00bfa6; */
+  background-color: #008eb9;
   color: #eeeeee;
 }
 
