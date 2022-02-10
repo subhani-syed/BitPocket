@@ -86,7 +86,7 @@ p {
   margin: 10px;
   border-style: none;
   border-radius: 5px;
-  width: 90vw;
+  /* width: 90vw; */
 }
 .wrapper {
   display: flex;
@@ -99,6 +99,17 @@ p {
   height: 50vh;
   padding-left: 10vw;
   margin-top: 10vh;
+}
+@media screen and (min-width:480px){
+ .profile{
+   display: flex;
+   flex-direction: column;
+ }
+ .graphs{
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+ }
 }
 @media screen and (max-width: 480px) {
   .img_home {
