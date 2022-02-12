@@ -1,21 +1,32 @@
 <%-include('../views/partials/header.ejs')%>
-<h1>Task</h1>
+<h1>Tasks</h1>
 <div class="big_screen">
     <img src="/images/completed_tasks.svg" alt="complete_task">
 </div>
 <% data.forEach((task)=>{ %>
-    <div>
-        <h1>Task Name is <%=task.Name %></h1>
-        <p>Task Amount is <%= task.Amount %></p>
-        <%    if(task.Type =='Type A'){%>
-                <p style="background-color: chocolate;">Task Type is <%= task.Type %></p>
-        <%    }else if(task.Type=='Type B'){%>
-                <p style="background-color: crimson;">Task Type is <%= task.Type %></p>
-        <%    }else{%>
-                <p style="background-color: chartreuse;">Task Type is <%= task.Type %></p>
-        <%    }%>
-        <br />
+    <div class="task_div">
+        <div>
+            <%    if(task.Type =='Type A'){%>
+                    <h1>Task Name is <%=task.Name %></h1>
+                    <p>Task Amount is <%= task.Amount %></p>
+                    <p style="background-color: chocolate;">Task Type is <%= task.Type %></p>
+            <%    }else if(task.Type=='Type B'){%>
+                    <h1>Task Name is <%=task.Name %></h1>
+                    <p>Task Amount is <%= task.Amount %></p>
+                    <p style="background-color: crimson;">Task Type is <%= task.Type %></p>
+            <%    }else if(task.Type=='Type C'){%>
+                    <h1>Task Name is <%=task.Name %></h1>
+                    <p>Task Amount is <%= task.Amount %></p>
+                    <p style="background-color: chartreuse;">Task Type is <%= task.Type %></p>
+            <%    }%>
+            <br />
+        </div>
     </div>
+    <style>
+        body{
+            margin-bottom: 10vh;
+        }
+    </style>
 
 <%}); %> 
 <%-include('../views/partials/footer.ejs')%>
