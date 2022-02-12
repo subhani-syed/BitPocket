@@ -6,7 +6,7 @@ A Basic Money Management Tool :gear:
 * HTML
 * CSS
 * JavaScript
-* Chartjs :chart:
+* Chartjs
 * Nodejs
 * Express
 * MongoDB
