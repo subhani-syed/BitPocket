@@ -3,7 +3,7 @@
 
 <div class="wrapper">
   <div class="big_screen">
-    <img src="/images/metrics.svg" alt="metrics">
+    <img src="/images/metrics.svg" alt="metrics" />
   </div>
   <div class="chart">
     <canvas id="myChart" ></canvas>
@@ -11,36 +11,26 @@
 </div>
 
 <div class="graphs">
-  <form action="/line" method="post">
-    <button class="button" type="submit">Line</button>
-  </form>
-  <form action="/bar" method="post">
-    <button class="button" type="submit">Bar</button>
-  </form>
-  <form action="/radar" method="post">
-    <button class="button" type="submit">Radar</button>
-  </form>
-  <form action="/pie" method="post">
-    <button class="button" type="submit">Pie</button>
-  </form>
-  <form action="/dough" method="post">
-    <button class="button" type="submit">Dough-nut</button>
-  </form>
+  <button class="button" onclick="chartType('doughnut')">Dough-nut</button>
+  <button class="button" onclick="chartType('pie')">Pie</button>
+  <button class="button" onclick="chartType('radar')">Radar</button>
+  <button class="button" onclick="chartType('bar')">Bar</button>
+  <button class="button" onclick="chartType('line')">Line</button>
 </div>
 <style>
-  body{
-      margin-bottom: 10vh;
+  body {
+    margin-bottom: 10vh;
   }
 </style>
 
 <script>
-  var ctx = document.getElementById("myChart").getContext("2d");
-  const data = {
+  let ctx = document.getElementById("myChart").getContext("2d");
+  let data = {
     labels: ["Type A", "Type B", "Type C"],
     datasets: [
       {
         label: "Money Distribution",
-        data:[ Number("<%=t1%>"),Number("<%=t2%>"),Number("<%=t3%>")],
+        data: [Number("<%=t1%>"), Number("<%=t2%>"), Number("<%=t3%>")],
         backgroundColor: [
           "rgb(255, 99, 132)",
           "rgb(54, 162, 235)",
@@ -51,33 +41,87 @@
     ],
   };
 
-  const config = {
-    // type: "pie",
-    type:"<%= graph_type%>",
+  let config = {
+    type: "line",
     data: data,
     options: {
-    responsive:false,
-    // animations: {
-    //   tension: {
-    //     duration: 1000,
-    //     easing:'easing',
-    //     from: 1,
-    //     to: 0,
-    //     loop: true
-    //   }
-    // },
-    scales: {
-      y: { // defining min and max so hiding the dataset does not change scale range
-        min: 0,
-        // max: 300
-      }
-    }
-  }
-
+      responsive: false,
+      scales: {
+        y: {
+          min: 0,
+        },
+      },
+    },
+  };
+  let config2 = {
+    type: "bar",
+    data: data,
+    options: {
+      responsive: false,
+      scales: {
+        y: {
+          min: 0,
+        },
+      },
+    },
+  };
+  let config3 = {
+    type: "doughnut",
+    data: data,
+    options: {
+      responsive: false,
+      scales: {
+        y: {
+          min: 0,
+        },
+      },
+    },
+  };
+  let config4 = {
+    type: "pie",
+    data: data,
+    options: {
+      responsive: false,
+      scales: {
+        y: {
+          min: 0,
+        },
+      },
+    },
+  };
+  let config5 = {
+    type: "radar",
+    data: data,
+    options: {
+      responsive: false,
+      scales: {
+        y: {
+          min: 0,
+        },
+      },
+    },
   };
 
-  var myChart = new Chart(ctx,config);
+  let myChart = new Chart(ctx, config);
 
+  function chartType(type) {
+    myChart.destroy();
+    if (type === "bar") {
+      myChart = new Chart(ctx, config2);
+    }
+    if (type === "line") {
+      myChart = new Chart(ctx, config);
+    }
+    if (type === "doughnut") {
+      myChart = new Chart(ctx, config3);
+    }
+    if (type === "pie") {
+      myChart = new Chart(ctx, config4);
+    }
+    if (type === "radar") {
+      myChart = new Chart(ctx, config5);
+    }
+  }
 </script>
 
 <%-include('../views/partials/footer.ejs')%>
