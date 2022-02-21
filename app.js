@@ -210,28 +210,6 @@ app.post("/home", (req, res) => {
 });
 
 // Graph Route
-let graph = "bar";
-
-app.post("/line", (req, res) => {
-  graph = "line";
-  res.redirect("/graph");
-});
-app.post("/bar", (req, res) => {
-  graph = "bar";
-  res.redirect("/graph");
-});
-app.post("/pie", (req, res) => {
-  graph = "pie";
-  res.redirect("/graph");
-});
-app.post("/dough", (req, res) => {
-  graph = "doughnut";
-  res.redirect("/graph");
-});
-app.post("/radar", (req, res) => {
-  graph = "radar";
-  res.redirect("/graph");
-});
 
 app.get("/graph", (req, res) => {
   if (req.cookies.bpid != "initial") {
