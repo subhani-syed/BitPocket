@@ -232,8 +232,7 @@ app.get("/graph", (req, res) => {
         res.render("graph", {
           t1: type_A,
           t2: type_B,
-          t3: type_C,
-          graph_type: graph,
+          t3: type_C
         });
       }
     });
